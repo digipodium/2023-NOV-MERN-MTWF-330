@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Student Admission Form</h2>
+    
+    <form>
+        
+        <label>Full Name</label>
+        <input type="text" required minlength="3" maxlength="20">
+        
+        <br><br>
+        
+        <label>Date of Birth</label>
+        <input type="date">
+        
+        <br><br>
+        
+        <label>Email Address</label>
+        <input type="email">
+        
+        <br><br>
+        
+        <label>Gender</label>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+
+        <br><br>
+        
+        <label>Address</label>
+        <br>
+        <textarea cols="20" rows="5"></textarea>
+        
+        <br><br>
+
+        <label>City</label>
+        <select>
+            <option value="lucknow">Lucknow</option>
+            <option value="barabanki">Barabanki</option>
+            <option value="varanasi">Varanasi</option>
+            <option value="kanpur">Kanpur</option>
+        </select>
+
+        <br><br>
+        <label>Board of Intermediate</label>
+        <input type="text" list="board">
+        <datalist id="board">
+            <option value="Up Board">Up Board</option>
+            <option value="CBSE Board">CBSE Board</option>
+            <option value="ICSE Board">ICSE Board</option>
+        </datalist>
+
+        <br><br>
+
+        <input type="checkbox"> <label>I accept Terms & Conditions</label>
+        <br>
+        <input type="checkbox"> <label>Subscribe to weekly newsletter</label>
+
+        <br>
+
+        <details>
+            <summary>View Terms & Conditions</summary>
+
+            <p>Lorem ipsum dolor sit amet <mark> consectetur </mark> adipisicing elit. Quia velit consequatur architecto, in voluptatem voluptatum iure! Quas, mollitia possimus repudiandae magnam recusandae dolores, sunt beatae, quisquam modi dolor ducimus temporibus?</p>
+        </details>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</body>
+</html>
