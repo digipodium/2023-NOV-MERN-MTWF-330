@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+
+    <style>
+
+        *{
+            font-family: Inter;
+        }
+
+    .item{
+            background-color: rgb(165, 165, 255);
+            /* padding: 20px; */
+            border: 2px solid blue;
+            font-size: 30px;
+            border-radius: 10px;
+            /* margin-bottom: 20px; */
+        }
+
+        .parent{
+
+            height: 100vh;
+            display: grid;
+            /* grid-template-columns: 200px 300px 600px; */
+            /* grid-template-columns: 2fr 5fr 3fr; */
+            grid-template-columns: repeat( auto-fit , minmax(400px , 1fr));
+            grid-template-rows: 1fr 1fr;
+            row-gap: 50px;
+            column-gap: 20px;
+        }
+
+        .item-img{
+            width: 100%;
+            border-radius: inherit;
+        }
+
+        .item-body{
+            padding: 30px;
+        }
+
+        .item-body h3, p{
+            margin: 0;
+        }
+
+        .item-btn{
+            background-color: rgb(37, 37, 61);
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="parent">
+        <div class="item">
+            <img class="item-img" src="https://www.promotionalwears.com/image/cache/catalog/data/branded-gifts/boAt/headphones/boat-rockerz-558-red-wireless-headphone-750x750.png" alt="">
+
+            <div class="item-body">
+                <h3>Boat Headphones</h3>
+                <p>Some description text</p>
+
+                <button class="item-btn">Buy Now</button>
+
+            </div>
+
+        </div>
+        <div class="item">
+            <h2>Item 2</h2>
+        </div>
+        <div class="item">
+            <h2>Item 3</h2>
+        </div>
+        <div class="item">
+            <h2>Item 4</h2>
+        </div>
+        <div class="item">
+            <h2>Item 5</h2>
+        </div>
+        <div class="item">
+            <h2>Item 6</h2>
+        </div>
+    </div>
+
+</body>
+</html>
