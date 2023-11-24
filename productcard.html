@@ -14,18 +14,32 @@
 
     <style>
         .myimg {
-            height: 400px;
+            height: 300px;
             object-fit: cover;
             object-position: center;
         }
 
-        header{
+        header {
             height: 50vh;
-            background-image: linear-gradient(0deg, #000000d9, #000000e0), 
-            url('https://shop.panasonic.com/cdn/shop/collections/gseries_1500x600_b33ccac2-ff2d-493b-a359-41f5852b0be5.jpg?v=1692041859&width=2048');
+            background-image: linear-gradient(0deg, #000000d9, #000000e0),
+                url('https://shop.panasonic.com/cdn/shop/collections/gseries_1500x600_b33ccac2-ff2d-493b-a359-41f5852b0be5.jpg?v=1692041859&width=2048');
             background-size: cover;
             background-position: center;
         }
+
+        .title {
+            transform: perspective(500px);
+        }
+
+        .card{
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+
+        .card-body{
+            transform: translateZ(30px);
+        }
+
     </style>
 
 </head>
@@ -34,17 +48,18 @@
 
     <header class="bg-dark text-white d-flex">
         <div class="container py-5 my-auto">
-            <h1 class="text-center display-1 fw-bold">Super Black Friday Sale</h1>
-            <p class="fs-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae enim sequi
+            <h1 class="text-center display-1 fw-bold title">Super Black Friday Sale</h1>
+            <p class="fs-4 text-center sub-title ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae
+                enim sequi
                 corrupti vitae cumque!</p>
-            
-                <div class="input-group w-75 mx-auto my-5">
-                    <div class="input-group-text">
-                        <i class="fa-solid fa-magnifying-glass fa-beat-fade"></i>
-                    </div>
-                    <input type="text" class="form-control">
-                    <button class="btn btn-warning">Search</button>
+
+            <div class="input-group w-75 mx-auto my-5 search">
+                <div class="input-group-text">
+                    <i class="fa-solid fa-magnifying-glass fa-beat-fade"></i>
                 </div>
+                <input type="text" class="form-control">
+                <button class="btn btn-warning">Search</button>
+            </div>
 
         </div>
     </header>
@@ -92,7 +107,7 @@
                 <div class="col-md-3 mb-4">
 
                     <div class="card shadow">
-                        <img class="card-img-top"
+                        <img class="myimg card-img-top"
                             src="https://cdn.thewirecutter.com/wp-content/media/2023/04/instantcameras-2048px-5791.jpg?auto=webp&quality=75&width=1024"
                             alt="">
                         <div class="card-body">
@@ -111,7 +126,7 @@
                 <div class="col-md-3 mb-4">
 
                     <div class="card shadow">
-                        <img class="card-img-top"
+                        <img class="myimg card-img-top"
                             src="https://cdn.thewirecutter.com/wp-content/media/2023/04/instantcameras-2048px-5791.jpg?auto=webp&quality=75&width=1024"
                             alt="">
                         <div class="card-body">
@@ -137,7 +152,11 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 
-        <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"
+        integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
 
@@ -145,7 +164,38 @@
             // delay: 500,
             origin: 'bottom',
             distance: '50px',
-            interval: 100
+            interval: 100,
+            scale: 0.8,
+
+        });
+
+        ScrollReveal().reveal('.title', {
+            origin: 'bottom',
+            distance: '70px',
+            rotate: {
+                x: -90
+            },
+            duration: 1000
+        })
+
+        ScrollReveal().reveal('.sub-title', {
+            origin: 'right',
+            distance: '100px'
+        })
+
+        ScrollReveal().reveal('.search', {
+            origin: 'left',
+            distance: '100px'
+        })
+
+    </script>
+
+    <script>
+
+        VanillaTilt.init( document.querySelectorAll('.card'), {
+            max: 20,
+            speed: 500,
+            glare: true
         });
 
     </script>
