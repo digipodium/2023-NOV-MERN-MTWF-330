@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import Navbar from './components/Navbar';
 import Notfound from './components/Notfound';
 import EventHandling from './components/EventHandling';
+import StateManagement from './components/StateManagement';
 
 const App = () => {
   
@@ -27,6 +28,7 @@ const App = () => {
             <Route path='signup' element={ <Signup /> } />
             <Route path='contact' element={ <Contact /> } />
             <Route path='event' element={ <EventHandling /> } />
+            <Route path='state' element={ <StateManagement /> } />
             <Route path='*' element={ <Notfound /> } />
         </Routes>
       </BrowserRouter>
