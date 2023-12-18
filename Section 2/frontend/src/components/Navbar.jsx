@@ -47,6 +47,11 @@ const Navbar = () => {
                                 State Management
                             </NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/todo">
+                                Todo
+                            </NavLink>
+                        </li>
                     </ul>
                     
                 </div>
