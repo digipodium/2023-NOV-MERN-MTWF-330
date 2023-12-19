@@ -52,6 +52,11 @@ const Navbar = () => {
                                 Todo
                             </NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/browse">
+                                Browse Product
+                            </NavLink>
+                        </li>
                     </ul>
                     
                 </div>

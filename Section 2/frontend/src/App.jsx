@@ -10,6 +10,7 @@ import Notfound from './components/Notfound';
 import EventHandling from './components/EventHandling';
 import StateManagement from './components/StateManagement';
 import Todo from './components/Todo';
+import BrowseProduct from './components/BrowseProduct';
 
 const App = () => {
   
@@ -31,6 +32,7 @@ const App = () => {
             <Route path='event' element={ <EventHandling /> } />
             <Route path='state' element={ <StateManagement /> } />
             <Route path='todo' element={ <Todo /> } />
+            <Route path='browse' element={ <BrowseProduct /> } />
             <Route path='*' element={ <Notfound /> } />
         </Routes>
       </BrowserRouter>
