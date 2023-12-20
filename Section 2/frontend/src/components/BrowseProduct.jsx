@@ -6,7 +6,10 @@ const BrowseProduct = () => {
     const [productList, setProductList] = useState(laptopData);
 
     const searchRef = useRef(null);
-    const priceRef = useRef(null);
+
+    const brands = ['HP', 'Lenevo', 'Asus', 'Apple', 'Dell', 'Samsung'];
+
+    const [selBrands, setSelBrands] = useState([]);
 
     const searchProduct = () => {
         const filteredData = laptopData.filter((laptop) => {
@@ -17,8 +20,35 @@ const BrowseProduct = () => {
 
     const filterPrice = (e) => {
         console.log(e.target.value);
-        const filteredData = laptopData.filter( (laptop) => { return laptop.price<=parseInt(e.target.value) } );
+        const filteredData = laptopData.filter((laptop) => { return laptop.price <= parseInt(e.target.value) });
         setProductList(filteredData);
+    }
+
+    const selectBrand = (e, brand) => {
+        console.log(e.target.checked);
+        if(selBrands.includes(brand)){
+            const filteredBrands = selBrands.filter( (b) => { return b!== brand } );
+            if(filteredBrands.length === 0){
+                setProductList(laptopData);
+            }else{
+                const filteredData = laptopData.filter((laptop) => { return filteredBrands.includes(laptop.brand) });
+                setProductList(filteredData);
+            }
+            
+            setSelBrands(filteredBrands);
+            console.log(filteredBrands);
+        }else{
+
+            const filteredBrands = [...selBrands, brand]
+
+            const filteredData = laptopData.filter((laptop) => { 
+                return filteredBrands.includes(laptop.brand) 
+            });
+            setProductList(filteredData);
+
+            setSelBrands(filteredBrands);
+            console.log([...selBrands, brand]);
+        }
     }
 
     return (
@@ -30,6 +60,8 @@ const BrowseProduct = () => {
                         <input type="text" className='form-control' ref={searchRef} />
                         <button onClick={searchProduct} className='btn btn-primary'>Search</button>
                     </div>
+
+
                 </div>
             </header>
             <div className='container-fluid'>
@@ -41,6 +73,19 @@ const BrowseProduct = () => {
                                 <label>Max Price</label>
                                 <input type="range" step={5000} min={10000} max={200000} className='form-range' onChange={filterPrice} />
 
+                                <hr className='my-3' />
+                                <label>Select Brands</label>
+                                {
+                                    brands.map((b) => {
+                                        return <div>
+                                            <input
+                                                type="checkbox"
+                                                checked={selBrands.includes(b)}
+                                                onChange={(e) => { selectBrand(e, b) }} />
+                                            <label>{b}</label>
+                                        </div>
+                                    })
+                                }
                             </div>
                         </div>
                     </div>
