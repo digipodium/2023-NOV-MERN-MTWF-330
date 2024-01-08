@@ -11,11 +11,13 @@ import EventHandling from './components/EventHandling';
 import StateManagement from './components/StateManagement';
 import Todo from './components/Todo';
 import BrowseProduct from './components/BrowseProduct';
+import { SnackbarProvider } from 'notistack';
 
 const App = () => {
   
   return (
     <div>
+      <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} >
       <BrowserRouter>
 
         {/* <Link to="/">Home</Link>
@@ -36,6 +38,7 @@ const App = () => {
             <Route path='*' element={ <Notfound /> } />
         </Routes>
       </BrowserRouter>
+      </SnackbarProvider>
     </div>
   )
 }
