@@ -1,9 +1,13 @@
 import { useFormik } from 'formik';
 import { enqueueSnackbar } from 'notistack';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
+
+
+  const navigate = useNavigate();
 
   const loginForm = useFormik({
     initialValues: {
@@ -23,6 +27,7 @@ const Login = () => {
 
       if(res.status === 200){
         enqueueSnackbar( 'Logged in Successfully', { variant : 'success' } );
+        navigate('/');
       }else if(res.status === 401){
         enqueueSnackbar( 'Invalid Credentials', { variant : 'error' } );
       }else{

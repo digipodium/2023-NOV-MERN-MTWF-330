@@ -12,6 +12,8 @@ import StateManagement from './components/StateManagement';
 import Todo from './components/Todo';
 import BrowseProduct from './components/BrowseProduct';
 import { SnackbarProvider } from 'notistack';
+import Manageuser from './components/Manageuser';
+import UpdateUser from './components/UpdateUser';
 
 const App = () => {
   
@@ -35,6 +37,8 @@ const App = () => {
             <Route path='state' element={ <StateManagement /> } />
             <Route path='todo' element={ <Todo /> } />
             <Route path='browse' element={ <BrowseProduct /> } />
+            <Route path='manageuser' element={ <Manageuser /> } />
+            <Route path='updateuser/:id' element={ <UpdateUser /> } />
             <Route path='*' element={ <Notfound /> } />
         </Routes>
       </BrowserRouter>

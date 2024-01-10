@@ -57,6 +57,11 @@ const Navbar = () => {
                                 Browse Product
                             </NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/manageuser">
+                                Manage User
+                            </NavLink>
+                        </li>
                     </ul>
                     
                 </div>
