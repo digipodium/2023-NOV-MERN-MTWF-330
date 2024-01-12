@@ -27,6 +27,11 @@ const Login = () => {
 
       if(res.status === 200){
         enqueueSnackbar( 'Logged in Successfully', { variant : 'success' } );
+
+        const data = await res.json();
+
+        sessionStorage.setItem('user', JSON.stringify(data));
+
         navigate('/');
       }else if(res.status === 401){
         enqueueSnackbar( 'Invalid Credentials', { variant : 'error' } );
