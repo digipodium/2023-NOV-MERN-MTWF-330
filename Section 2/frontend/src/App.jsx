@@ -14,34 +14,36 @@ import BrowseProduct from './components/BrowseProduct';
 import { SnackbarProvider } from 'notistack';
 import Manageuser from './components/Manageuser';
 import UpdateUser from './components/UpdateUser';
+import { AppProvider } from './AppContext';
 
 const App = () => {
-  
+
   return (
     <div>
       <SnackbarProvider maxSnack={3} anchorOrigin={{ vertical: 'top', horizontal: 'right' }} >
-      <BrowserRouter>
-
-        {/* <Link to="/">Home</Link>
+        <BrowserRouter>
+          <AppProvider>
+            {/* <Link to="/">Home</Link>
         <Link to="/login">Login</Link>
         <Link to="/signup">Signup</Link> */}
 
-        <Navbar />
+            <Navbar />
 
-        <Routes>
-            <Route path='/' element={ <Home /> } />
-            <Route path='login' element={ <Login /> } />
-            <Route path='signup' element={ <Signup /> } />
-            <Route path='contact' element={ <Contact /> } />
-            <Route path='event' element={ <EventHandling /> } />
-            <Route path='state' element={ <StateManagement /> } />
-            <Route path='todo' element={ <Todo /> } />
-            <Route path='browse' element={ <BrowseProduct /> } />
-            <Route path='manageuser' element={ <Manageuser /> } />
-            <Route path='updateuser/:id' element={ <UpdateUser /> } />
-            <Route path='*' element={ <Notfound /> } />
-        </Routes>
-      </BrowserRouter>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='login' element={<Login />} />
+              <Route path='signup' element={<Signup />} />
+              <Route path='contact' element={<Contact />} />
+              <Route path='event' element={<EventHandling />} />
+              <Route path='state' element={<StateManagement />} />
+              <Route path='todo' element={<Todo />} />
+              <Route path='browse' element={<BrowseProduct />} />
+              <Route path='manageuser' element={<Manageuser />} />
+              <Route path='updateuser/:id' element={<UpdateUser />} />
+              <Route path='*' element={<Notfound />} />
+            </Routes>
+          </AppProvider>
+        </BrowserRouter>
       </SnackbarProvider>
     </div>
   )

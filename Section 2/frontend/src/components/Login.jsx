@@ -2,12 +2,13 @@ import { useFormik } from 'formik';
 import { enqueueSnackbar } from 'notistack';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import useAppContext from '../AppContext';
 
 
 const Login = () => {
-
-
   const navigate = useNavigate();
+
+  const { setLoggedIn } = useAppContext();
 
   const loginForm = useFormik({
     initialValues: {
@@ -24,13 +25,13 @@ const Login = () => {
           'Content-Type' : 'application/json'
         }
       });
-
       if(res.status === 200){
         enqueueSnackbar( 'Logged in Successfully', { variant : 'success' } );
 
         const data = await res.json();
 
         sessionStorage.setItem('user', JSON.stringify(data));
+        setLoggedIn(true);
 
         navigate('/');
       }else if(res.status === 401){
@@ -39,7 +40,7 @@ const Login = () => {
         enqueueSnackbar( 'Something went Wrong', { variant : 'error' } );
       }
     }
-  })
+  });
 
   return (
     <div className='vh-100'>
